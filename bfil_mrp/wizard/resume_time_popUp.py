@@ -8,6 +8,7 @@ class ResumeWorkOrder(models.TransientModel):
     resume_after = fields.Datetime(string='Resume time',)
 
     def send_email(self):
+
         data = {
             "resume": self.resume,
             "resume_date": self.resume_after
@@ -36,4 +37,7 @@ class ResumeWorkOrder(models.TransientModel):
                     'resume_time': None
                 }
             )
-        return self.env['mrp.workorder'].browse(workorder_active_id).button_pending()
+        work_order = self.env['mrp.workorder'].browse(workorder_active_id)
+        if work_order:
+            work_order.button_pending()
+            work_order.state = 'pause'
