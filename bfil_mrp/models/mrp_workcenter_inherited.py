@@ -11,7 +11,7 @@ class MrpWorkcenter(models.Model):
     rental_cost = fields.Float(string='Rental Cost', required=True)
     labor_cost = fields.Float(string='Labor Cost', required=True)
     common_area_cost = fields.Float(string='Common area cost', required=True)
-    cost_per_min = fields.Float(string='Cost Per Minute', readonly=True, required=True, compute='_compute_cost_per_minute')
+    cost_per_min = fields.Float(string='Cost Per Minute', readonly=True, required=True, compute='_compute_cost_per_minute', store=True)
 
 
     @api.constrains('total_prod_capacity', 'rental_cost', 'labor_cost', 'common_area_cost')
@@ -35,3 +35,4 @@ class MrpWorkcenter(models.Model):
     def _compute_cost_per_minute(self):
         total_cost =(self.common_area_cost+self.rental_cost+self.labor_cost)/self.total_prod_capacity
         self.cost_per_min = total_cost
+
