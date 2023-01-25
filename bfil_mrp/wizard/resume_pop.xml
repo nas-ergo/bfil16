@@ -56,10 +56,6 @@
                     attrs="{'invisible': ['|', ('is_user_working', '=', False), ('working_state', '=', 'blocked')]}" />
                 </xpath>
 
-<!--                <xpath expr="//field[@name='state']" position="after" >-->
-<!--                            <field name="resume_time"-->
-<!--                                    attrs="{'invisible': ['|', '|', '|', ('production_state','in', ('draft', 'done', 'cancel')), ('working_state', '=', 'blocked'), ('state', '=', 'done'), ('is_user_working', '!=', False)]}"/>-->
-<!--                </xpath>-->
             </field>
     </record>
 
