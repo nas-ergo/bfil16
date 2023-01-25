@@ -7,12 +7,11 @@ class MrpWorkcenter(models.Model):
     _inherit = 'mrp.workcenter'
 
     user_id = fields.Many2one('res.users', string='Responsible person',  required=True)
-    total_prod_capacity = fields.Float(string='Total Production Capacity(min)', required=True, default=1)
-    rental_cost = fields.Float(string='Rental Cost', required=True)
-    labor_cost = fields.Float(string='Labor Cost', required=True)
-    common_area_cost = fields.Float(string='Common area cost', required=True)
-    cost_per_min = fields.Float(string='Cost Per Minute', readonly=True, required=True, compute='_compute_cost_per_minute', store=True)
-
+    total_prod_capacity = fields.Float(string='Total Production Capacity(min)',default=1)
+    rental_cost = fields.Float(string='Rental Cost')
+    labor_cost = fields.Float(string='Labor Cost')
+    common_area_cost = fields.Float(string='Common area cost')
+    cost_per_min = fields.Float(string='Cost Per Minute', readonly=True, compute='_compute_cost_per_minute', store=True)
 
     @api.constrains('total_prod_capacity', 'rental_cost', 'labor_cost', 'common_area_cost')
     def _check_values(self):

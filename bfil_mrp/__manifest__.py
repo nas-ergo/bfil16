@@ -1,10 +1,10 @@
 {
-    'name' : 'CUSTOM_MRP',
+    'name' : 'BFIL_MRP_CUSTOMIZATION',
     'version' : '1.0.1',
     'author' : 'rifat',
-    'category' : 'Pause Pop Up',
+    'category' : 'Manufacturing',
     'sequence' : 1,
-    'summary' : 'Pop up to resume timer',
+    'summary' : 'BFIL_MRP_CUSTOMIZATION',
     'description' : '',
     'depends' : ['base', 'mrp', 'mrp_workorder'],
     'data' : [
