@@ -33,6 +33,7 @@ class MrpWorkcenter(models.Model):
 
     @api.depends('total_prod_capacity','rental_cost','labor_cost','common_area_cost')
     def _compute_cost_per_minute(self):
-        total_cost =(self.common_area_cost+self.rental_cost+self.labor_cost)/self.total_prod_capacity
-        self.cost_per_min = total_cost
+        for record in self:
+            total_cost= (record.common_area_cost+record.rental_cost+record.labor_cost)/record.total_prod_capacity
+            record.cost_per_min = total_cost
 
