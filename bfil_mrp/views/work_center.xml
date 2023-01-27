@@ -11,13 +11,14 @@
                 </xpath>
 
                 <xpath expr="//notebook" position="inside">
-                    <page string="Cost per minute" name="general_info">
+                    <page string="Cost Calculation" name="general_info">
                         <group>
                             <group string="Cost Info" name="Cost Information">
                                 <field name="total_prod_capacity"/>
                                 <field name="rental_cost"/>
                                 <field name="labor_cost"/>
                                 <field name="common_area_cost"/>
+                                <field name="other_costs"/>
                             </group>
 
                             <group string="Total cost" name="Cost Per Minute">

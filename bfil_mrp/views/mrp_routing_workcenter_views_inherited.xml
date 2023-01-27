@@ -9,8 +9,12 @@
             <xpath expr="//field[@name='time_cycle']" position="after">
                 <field name="wc_cost_per_minute"/>
                 <field name="cost"/>
-
             </xpath>
+
+            <xpath expr="//field[@name='cost']" position="attributes">
+                <attribute name="sum">Total Duration</attribute>
+            </xpath>
+
         </field>
     </record>
 
