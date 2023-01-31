@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="mrp_production_view_inherited" model="ir.ui.view">
+        <field name="name">mrp.production.view.inherited</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='components']/field[@name='move_raw_ids']/tree/field[@name='quantity_done']" position="after">
+                <field name="unit_price" readonly="1" force_save="1"/>
+                <field name="component_cost" readonly="1" force_save="1"/>
+            </xpath>
+            <xpath expr="//page[@name='components']/field[@name='move_raw_ids']/tree/field[@name='component_cost']" position="attributes">
+
+                <attribute name="sum">Total Component Cost </attribute>
+            </xpath>
+
+
+            <xpath expr="//notebook" position="inside">
+                <page string="Costing" name="Cost Calculation">
+                    <group>
+                        <group string="Cost Info" name="Cost Information">
+                            <field name="total_component_cost"/>
+                            <field name="total_workcenter_cost"/>
+                            <field name="total_cost"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+
+        </field>
+    </record>
+
+
+
+</odoo>
