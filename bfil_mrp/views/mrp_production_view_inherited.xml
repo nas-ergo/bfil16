@@ -13,8 +13,18 @@
             <xpath expr="//page[@name='components']/field[@name='move_raw_ids']/tree/field[@name='component_cost']" position="attributes">
 
                 <attribute name="sum">Total Component Cost </attribute>
-            </xpath>
+        f    </xpath>
 
+            <xpath expr="//page[@name='components']/field[@name='move_raw_ids']" position="after">
+                <group name="note_group" col="6" class="mt-2 mt-md-0">
+                    <group colspan="4">
+                    </group>
+                    <group class="oe_subtotal_footer oe_right" colspan="2" name="total_component_cost">
+                        <field name="total_component_cost" colspan="2" readonly="1"/>
+                    </group>
+                    <div class="clearfix"/>
+                </group>
+            </xpath>
 
             <xpath expr="//notebook" position="inside">
                 <page string="Costing" name="Cost Calculation">
@@ -30,7 +40,5 @@
 
         </field>
     </record>
-
-
 
 </odoo>

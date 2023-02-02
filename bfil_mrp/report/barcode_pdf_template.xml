@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <template id = 'lot_barcode_report_pdf'>
+        <t t-call = "web.basic_layout">
+            <t t-foreach="docs" t-as="data">
+                <p style="text-align:center"> Product : <span t-field="data.product_id.name"/></p>
+                <div>
+                    <img style="padding-left: 270pt; padding-bottom: 15pt" t-att-src="'/report/barcode/?barcode_type=%s&amp;value=%s&amp;width=%s&amp;height=%s'%('QR', data.qr_code, 125, 125)"/>
+                </div>
+
+                <p style="text-align:center">LOT Number : <span t-field="data.name"/></p>
+
+            </t>
+        </t>
+    </template>
+</odoo>
