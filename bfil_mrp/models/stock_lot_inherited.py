@@ -19,7 +19,11 @@ class StockLot(models.Model):
         for rec in self:
 
 
-            model_id = rec.product_id.default_code + "(" +rec.product_id.name + ")"
+            if rec.product_id.default_code:
+                model_id = rec.product_id.default_code + "(" +rec.product_id.name + ")"
+
+            else:
+                model_id = rec.product_id.name
 
             rec.qr_code = """Welcome to BFIL, where exceptional quality and customer satisfaction come first.
 Model No: {} \nLot No: {}\nManufactured By: Bangladesh Furniture Industries Limited (BFIL).""".format(model_id, rec.name)

@@ -8,7 +8,7 @@
         <field name="report_type">qweb-pdf</field>
         <field name="report_name">bfil_mrp.lot_barcode_report_pdf</field>
         <field name="report_file">bfil_mrp.lot_barcode_report_pdf</field>
-        <field name="print_report_name">'Lot-Info - %s'</field>
+        <field name="print_report_name">'Lot-Info'</field>
         <field name="binding_model_id" ref="model_stock_lot"/>
         <field name="binding_type">report</field>
     </record>
