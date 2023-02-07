@@ -11,7 +11,7 @@
         'security/ir.model.access.csv',
         'data/resume_email_template.xml',
         'data/without_resume_email_template.xml',
-        'data/eamil_template_wc.xml',
+        'data/email_template_wc.xml',
         'views/work_center.xml',
         'views/mrp_routing_workcenter_views_inherited.xml',
         'views/mrp_bom_form_view_inherited.xml',

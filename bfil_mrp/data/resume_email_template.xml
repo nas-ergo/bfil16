@@ -4,7 +4,6 @@
         <record id="resume_email_template" model="mail.template">
             <field name="name">Resume Operation</field>
             <field name="model_id" ref="mrp.model_mrp_workorder"/>
-<!--            <field name="model_id" ref="mrp.model_mrp_production"/>-->
             <field name="subject">Operation resume information</field>
             <field name="email_to">{{ object.workcenter_id.user_id.email}}</field>
             <field name="body_html" type="html">
