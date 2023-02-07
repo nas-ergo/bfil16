@@ -40,6 +40,11 @@ class MrpWorkcenter(models.Model):
             total_cost= (record.common_area_cost+record.rental_cost+record.labor_cost+record.other_costs)/record.total_prod_capacity
             record.cost_per_min = total_cost
 
+    @api.onchange('cost_per_min')
+    def change_cost_per_hour(self):
+        for rec in self:
+            rec.costs_hour = rec.cost_per_min * 60
+
 
 class MrpWorkcenterProductivity(models.Model):
     _inherit = 'mrp.workcenter.productivity'

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="mrp_cost_structure" inherit_id="mrp_account_enterprise.mrp_cost_structure">
+        <xpath expr="//t[@name='operations']" position="replace">
+            <h3 class="o_mrp_header o_mrp_table_header">Cost of Operations</h3>
+            <table class="table table-sm o_mrp_report_table">
+                <thead>
+                    <tr class="o_mrp_report_header">
+                        <th class="o_mrp_report_line_header">
+                            <span>Resource</span>
+                        </th>
+                        <th class="o_mrp_report_line_header">
+                            <span>Operation</span>
+                        </th>
+                        <th class="text-end o_mrp_report_line_header">
+                            <span>Working Time</span>
+                        </th>
+                        <th class="text-end o_mrp_report_line_header">
+                            <span>Cost/Min</span>
+                        </th>
+                        <th class="text-end o_mrp_report_line_header">
+                            <span>Total Cost</span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr t-foreach="line['operations']" t-as="row" class="text-muted">
+                        <td>
+                            <span t-esc="row[0]"/>
+                        </td>
+                        <td>
+                            <span t-if="row[1]" class="o_mrp_reports_web_action" t-att-res-id="row[1]"
+                                  res-model="mrp.routing.workcenter" view-type="form" t-esc="row[2]"/>
+                            <span t-else="" t-esc="row[2]"/>
+                        </td>
+                        <td class="text-end">
+                            <span>
+                                <t t-esc="row[3]" t-options='{"widget": "float", "precision": 4}'/>
+                                minutes
+                            </span>
+                        </td>
+                        <td class="text-end">
+                            <span t-esc="row[4]" t-options='{"widget": "monetary", "display_currency": currency}'/>
+                        </td>
+                        <td class="text-end">
+                            <span t-esc="row[3] * row[4]"
+                                  t-options='{"widget": "monetary", "display_currency": currency}'/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="text-end">
+                            <strong>Total Cost of Operations</strong>
+                        </td>
+                        <td class="text-end">
+                            <strong t-esc="line['total_cost_operations']"
+                                    t-options='{"widget": "monetary", "display_currency": currency}'/>
+                        </td>
+                    </tr>
+                    <tr t-if="not line['qty_by_byproduct_w_costshare'] and line['mo_qty'] &gt; 1">
+                        <td colspan="4" class="text-end">
+                            <strong>Cost of Operations per unit (in<t t-esc="line['product'].uom_id.name"/>)
+                            </strong>
+                        </td>
+                        <td class="text-end">
+                            <span t-esc="line['total_cost_operations'] / line['mo_qty']"
+                                  t-options='{"widget": "monetary", "display_currency": currency}'/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </xpath>
+    </template>
+</odoo>
