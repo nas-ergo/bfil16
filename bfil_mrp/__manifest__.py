@@ -12,6 +12,7 @@
         'data/resume_email_template.xml',
         'data/without_resume_email_template.xml',
         'data/email_template_wc.xml',
+        'data/barcode_paperformat.xml',
         'views/work_center.xml',
         'views/mrp_routing_workcenter_views_inherited.xml',
         'views/mrp_bom_form_view_inherited.xml',
@@ -21,6 +22,7 @@
         'views/cost_structure_report_inherited.xml',
         'report/Barcode_pdf_report.xml',
         'report/barcode_pdf_template.xml',
+
         'wizard/resume_pop.xml',
     ],
     'demo' : [],

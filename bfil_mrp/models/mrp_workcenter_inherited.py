@@ -42,7 +42,7 @@ class MrpWorkcenter(models.Model):
 
     @api.onchange('cost_per_min')
     def change_cost_per_hour(self):
-        for rec in self:
+        for rec in self:    
             rec.costs_hour = rec.cost_per_min * 60
 
 
